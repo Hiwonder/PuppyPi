@@ -68,24 +68,6 @@ PuppyPi机身部署了多模态AI大模型，结合AI语音交互盒，它可以
 
 ## 项目结构
 
-### ROS2版本（主分支）
-```
-puppypi/
-├── src/                      # ROS2源码包
-│   ├── puppy_bringup/        # 系统启动和配置
-│   ├── puppy_control/        # 运动控制和运动学
-│   ├── puppy_navigation/     # 导航和路径规划（激光雷达）
-│   ├── puppy_slam/           # SLAM建图（激光雷达）
-│   ├── puppy_with_arm/       # 机械臂集成
-│   └── ros_robot_controller/ # 硬件控制器接口
-├── example/                  # 示例应用和演示
-├── interfaces/               # ROS2消息和服务定义
-├── lab_config/              # 颜色识别配置
-├── large_models/            # AI大模型集成
-└── sources/                 # 资源和文档
-```
-
-### ROS1版本（ros1分支）
 ```
 puppypi/
 ├── apriltag_detect/         # AprilTag检测
@@ -113,11 +95,10 @@ puppypi/
 ## 版本信息
 - **当前版本**: PuppyPi v1.0.0
 - **支持平台**: 树莓派5
-- **ROS版本**: ROS1 (Noetic) & ROS2 (Humble)
+- **ROS版本**: ROS1 (Noetic)
 
 ### 相关技术
 - [ROS](http://www.ros.org/) - 机器人操作系统
-- [ROS2](https://ros.org/) - 机器人操作系统2
 - [OpenCV](https://opencv.org/) - 计算机视觉库
 - [Python](https://www.python.org/) - 编程语言
 

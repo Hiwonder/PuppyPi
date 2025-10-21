@@ -66,24 +66,6 @@ PuppyPi is deployed with multimodal AI large models. Combined with AI voice inte
 
 ## Project Structure
 
-### ROS2 Version (Main Branch)
-```
-puppypi/
-├── src/                      # ROS2 source packages
-│   ├── puppy_bringup/        # System startup and configuration
-│   ├── puppy_control/        # Motion control and kinematics
-│   ├── puppy_navigation/     # Navigation and path planning (LiDAR)
-│   ├── puppy_slam/           # SLAM mapping (LiDAR)
-│   ├── puppy_with_arm/       # Robotic arm integration
-│   └── ros_robot_controller/ # Hardware controller interface
-├── example/                  # Example applications and demos
-├── interfaces/               # ROS2 message and service definitions
-├── lab_config/              # Color recognition configuration
-├── large_models/            # AI large model integration
-└── sources/                 # Resources and documentation
-```
-
-### ROS1 Version (ros1 Branch)
 ```
 puppypi/
 ├── apriltag_detect/         # AprilTag detection
@@ -111,11 +93,10 @@ puppypi/
 ## Version Information
 - **Current Version**: PuppyPi v1.0.0
 - **Supported Platform**: Raspberry Pi 5
-- **ROS Versions**: ROS1 (Noetic) & ROS2 (Humble)
+- **ROS Version**: ROS1 (Noetic)
 
 ### Related Technologies
 - [ROS](http://www.ros.org/) - Robot Operating System
-- [ROS2](https://ros.org/) - Robot Operating System 2
 - [OpenCV](https://opencv.org/) - Computer Vision Library
 - [Python](https://www.python.org/) - Programming Language
 
