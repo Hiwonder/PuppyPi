@@ -1,0 +1,4 @@
+interfaces/Pose2D data
+---
+bool success
+string message

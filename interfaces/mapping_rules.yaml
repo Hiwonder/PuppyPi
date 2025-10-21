@@ -1,0 +1,25 @@
+-
+  ros1_package_name: 'hiwonder_interfaces'
+  ros1_message_name: 'ObjectInfo'
+  ros2_package_name: 'interfaces'
+  ros2_message_name: 'ObjectInfo'
+-
+  ros1_package_name: 'hiwonder_interfaces'
+  ros1_message_name: 'ObjectsInfo'
+  ros2_package_name: 'interfaces'
+  ros2_message_name: 'ObjectsInfo'
+-
+  ros1_package_name: 'hiwonder_interfaces'
+  ros1_message_name: 'Points'
+  ros2_package_name: 'interfaces'
+  ros2_message_name: 'Points'
+-
+  ros1_package_name: 'hiwonder_interfaces'
+  ros1_message_name: 'PixelPosition'
+  ros2_package_name: 'interfaces'
+  ros2_message_name: 'PixelPosition'
+-
+  ros1_package_name: 'hiwonder_interfaces'
+  ros1_message_name: 'Point2D'
+  ros2_package_name: 'interfaces'
+  ros2_message_name: 'Point2D'

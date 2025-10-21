@@ -1,0 +1,6 @@
+# SetColor.srv
+string color
+---
+bool success
+string message
+

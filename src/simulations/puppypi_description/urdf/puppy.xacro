@@ -1,0 +1,745 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="puppy" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="$(find puppypi_description)/urdf/puppy.transmission.xacro"/>
+  <xacro:include filename="$(find puppypi_description)/urdf/puppy.gazebo.xacro"/>
+  <xacro:include filename="materials.xacro" />
+  
+  <xacro:property name="motor_torque" value="0.5"/>
+  <xacro:property name="motor_vec" value="2"/>
+
+  <link name="base_footprint" />
+  <joint name="base_joint" type="fixed">
+    <parent link="base_footprint" />
+    <child link="base_link" />
+    <origin xyz="0.0 0.0 0.11" rpy="0 0 0" />
+  </joint>
+  
+  <link name="base_link" />
+  <joint name="dummy_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="base_dummy" />
+    <origin xyz="0.0 0.0 0.0" rpy="0 0 1.57" />
+  </joint>
+  
+  <link name="lidar_frame">
+    <inertial>
+      <origin rpy="0 0 0" xyz="8.65086404290248E-05 9.02624664517182E-05 -0.0183546134707293"/>
+      <mass value="0.0405423044439003"/>
+      <inertia ixx="4.98470777040832E-06" ixy="-1.5407626531037E-07" ixz="2.05182756187779E-09" iyy="5.03926730954594E-06" iyz="1.10062857837226E-08" izz="8.25645669795306E-06"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://puppypi_description/meshes/lidar_Link.STL"/>
+      </geometry>
+      <material name="">
+        <color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://puppypi_description/meshes/lidar_Link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="lidar_Joint" type="fixed">
+    <origin rpy="0 0 0" xyz="-0.012242 -8.533E-05 0.092501"/>
+    <parent link="base_link"/>
+    <child link="lidar_frame"/>
+    <axis xyz="0 0 0"/>
+  </joint>
+  
+  <link
+    name="base_dummy">
+    <inertial>
+      <origin
+        xyz="-0.000281314271092793 -0.00232093824972492 0.0187442604423227"
+        rpy="0 0 0" />
+      <mass
+        value="0.0656002451111466" />
+      <material
+        name="black">
+      </material>
+      <inertia
+        ixx="0.0001015640290354"
+        ixy="5.44665608405109E-10"
+        ixz="-5.74905560030545E-09"
+        iyy="4.73014549137098E-05"
+        iyz="-4.46099046853099E-06"
+        izz="0.000137571042581761" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://puppypi_description/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="black">
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://puppypi_description/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="lb_link1">
+    <inertial>
+      <origin
+        xyz="0.0139910660045694 0.0129616626428829 -0.0150640859057311"
+        rpy="0 0 0" />
+      <mass
+        value="0.0101534902703093" />
+      <inertia
+        ixx="4.75129190044601E-06"
+        ixy="2.10473016237263E-08"
+        ixz="1.88925228411051E-08"
+        iyy="2.87659318790812E-06"
+        iyz="2.14913235084379E-06"
+        izz="2.92897619209419E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://puppypi_description/meshes/lb_link1.STL" />
+      </geometry>
+      <material
+        name="black">
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://puppypi_description/meshes/lb_link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lb_joint1"
+    type="revolute">
+    <origin
+      xyz="0.0420105649539 0.0778693100523862 0.0159880060021007"
+      rpy="-0.752 0 0" />
+    <parent
+      link="base_dummy" />
+    <child
+      link="lb_link1" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-2"
+      upper=" 2"
+      effort="${motor_torque}"
+      velocity="${motor_vec}" />
+  </joint>
+  <link
+    name="lb_link2">
+    <inertial>
+      <origin
+        xyz="0.00324999997314566 -0.027300410242372 -0.0228963515721465"
+        rpy="0 0 0" />
+      <mass
+        value="0.00545592599136945" />
+      <inertia
+        ixx="4.05444909185018E-06"
+        ixy="1.22817063923314E-15"
+        ixz="5.50500791639953E-16"
+        iyy="1.97885521739999E-06"
+        iyz="-1.87063799891709E-06"
+        izz="2.19064599298264E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://puppypi_description/meshes/lb_link2.STL" />
+      </geometry>
+      <material
+        name="black">
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://puppypi_description/meshes/lb_link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lb_joint2"
+    type="revolute">
+    <origin
+      xyz="0.0120498902789596 0.0525235728370777 -0.052877465200695"
+      rpy="0 0 0" />
+    <parent
+      link="lb_link1" />
+    <child
+      link="lb_link2" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-2"
+      upper="2"
+      effort="${motor_torque}"
+      velocity="${motor_vec}" />
+  </joint>
+  <link
+    name="rb_link1">
+    <inertial>
+      <origin
+        xyz="-0.01399117355691 0.0129616152695224 -0.0150641319628959"
+        rpy="0 0 0" />
+      <mass
+        value="0.0101536236284079" />
+      <inertia
+        ixx="4.75129811236989E-06"
+        ixy="-2.1017569726548E-08"
+        ixz="-1.89306363229736E-08"
+        iyy="2.87660393694748E-06"
+        iyz="2.14913401997947E-06"
+        izz="2.92897914074097E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://puppypi_description/meshes/rb_link1.STL" />
+      </geometry>
+      <material
+        name="black">
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://puppypi_description/meshes/rb_link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rb_joint1"
+    type="revolute">
+    <origin
+      xyz="-0.0420105649534512 0.0778693100523859 0.0159880060091649"
+      rpy="-0.752 0 0" />
+    <parent
+      link="base_dummy" />
+    <child
+      link="rb_link1" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-2"
+      upper="2"
+      effort="${motor_torque}"
+      velocity="${motor_vec}" />
+  </joint>
+  <link
+    name="rb_link2">
+    <inertial>
+      <origin
+        xyz="0.00324999997319507 -0.027300410241394 -0.0228963515708773"
+        rpy="0 0 0" />
+      <mass
+        value="0.00545592599106628" />
+      <inertia
+        ixx="4.05444909186485E-06"
+        ixy="1.22890997212443E-15"
+        ixz="5.5049632107985E-16"
+        iyy="1.97885521739198E-06"
+        iyz="-1.87063799892702E-06"
+        izz="2.19064599300475E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://puppypi_description/meshes/rb_link2.STL" />
+      </geometry>
+      <material
+        name="black">
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://puppypi_description/meshes/rb_link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rb_joint2"
+    type="revolute">
+    <origin
+      xyz="-0.0185498902789654 0.0525235728370851 -0.0528774652006949"
+      rpy="0 0 0" />
+    <parent
+      link="rb_link1" />
+    <child
+      link="rb_link2" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-2"
+      upper="2"
+      effort="${motor_torque}"
+      velocity="${motor_vec}" />
+  </joint>
+  <link
+    name="rf_link1">
+    <inertial>
+      <origin
+        xyz="-0.01399117355409 0.0129616152700151 -0.0150641319635249"
+        rpy="0 0 0" />
+      <mass
+        value="0.0101536236281805" />
+      <inertia
+        ixx="4.75129811233804E-06"
+        ixy="-2.1017569770552E-08"
+        ixz="-1.89306363663801E-08"
+        iyy="2.87660393692374E-06"
+        iyz="2.14913401996578E-06"
+        izz="2.9289791407718E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://puppypi_description/meshes/rf_link1.STL" />
+      </geometry>
+      <material
+        name="black">
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://puppypi_description/meshes/rf_link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rf_joint1"
+    type="revolute">
+    <origin
+      xyz="-0.0420105469986279 -0.0778692767711234 0.0106512951143373"
+      rpy="-0.752 0 0" />
+    <parent
+      link="base_dummy" />
+    <child
+      link="rf_link1" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-2"
+      upper="2"
+      effort="${motor_torque}"
+      velocity="${motor_vec}" />
+  </joint>
+  <link
+    name="rf_link2">
+    <inertial>
+      <origin
+        xyz="0.00324999997320218 -0.0273004102414339 -0.0228963515707321"
+        rpy="0 0 0" />
+      <mass
+        value="0.00545592599108903" />
+      <inertia
+        ixx="4.05444909185018E-06"
+        ixy="1.22817063923314E-15"
+        ixz="5.50500791639953E-16"
+        iyy="1.97885521739999E-06"
+        iyz="-1.87063799891709E-06"
+        izz="2.19064599298264E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://puppypi_description/meshes/rf_link2.STL" />
+      </geometry>
+      <material
+        name="black">
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://puppypi_description/meshes/rf_link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rf_joint2"
+    type="revolute">
+    <origin
+      xyz="-0.0185498902789602 0.0525235728370692 -0.0528774652007036"
+      rpy="0 0 0" />
+    <parent
+      link="rf_link1" />
+    <child
+      link="rf_link2" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-2"
+      upper="2"
+      effort="${motor_torque}"
+      velocity="${motor_vec}" />
+  </joint>
+  <link
+    name="lf_link1">
+    <inertial>
+      <origin
+        xyz="0.013991093009336 0.0129615944298928 -0.0150641278151682"
+        rpy="0 0 0" />
+      <mass
+        value="0.0101536321433225" />
+      <inertia
+        ixx="4.75131109114716E-06"
+        ixy="2.10480769743655E-08"
+        ixz="1.88912920202068E-08"
+        iyy="2.87660804474965E-06"
+        iyz="2.14914102954077E-06"
+        izz="2.92898830803666E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://puppypi_description/meshes/lf_link1.STL" />
+      </geometry>
+      <material
+        name="black">
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://puppypi_description/meshes/lf_link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lf_joint1"
+    type="revolute">
+    <origin
+      xyz="0.0420105469981795 -0.0778692767711239 0.0106512951072731"
+      rpy="-0.752 0 0" />
+    <parent
+      link="base_dummy" />
+    <child
+      link="lf_link1" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-2"
+      upper="2"
+      effort="${motor_torque}"
+      velocity="${motor_vec}" />
+  </joint>
+  <link
+    name="lf_link2">
+    <inertial>
+      <origin
+        xyz="0.003249999973145 -0.0273004102423796 -0.0228963515721502"
+        rpy="0 0 0" />
+      <mass
+        value="0.0054559259913707" />
+      <inertia
+        ixx="4.05444909186631E-06"
+        ixy="1.2230438959744E-15"
+        ixz="5.35398811066927E-16"
+        iyy="1.97885521740432E-06"
+        iyz="-1.87063799891828E-06"
+        izz="2.19064599300295E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://puppypi_description/meshes/lf_link2.STL" />
+      </geometry>
+      <material
+        name="black">
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://puppypi_description/meshes/lf_link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lf_joint2"
+    type="revolute">
+    <origin
+      xyz="0.0120498902789604 0.0525235728370695 -0.0528774652007036"
+      rpy="0 0 0" />
+    <parent
+      link="lf_link1" />
+    <child
+      link="lf_link2" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-2"
+      upper="2"
+      effort="${motor_torque}"
+      velocity="${motor_vec}" />
+  </joint>
+  <link
+    name="camera_link">
+    <inertial>
+      <origin
+        xyz="7.8816314098059E-12 0.00830783337409231 -1.1027486424009E-09"
+        rpy="0 0 0" />
+      <mass
+        value="0.00255589783563972" />
+      <inertia
+        ixx="8.0750471256965E-08"
+        ixy="6.5213060632267E-17"
+        ixz="-9.04303283934642E-14"
+        iyy="7.57695997997755E-08"
+        iyz="1.85813457456822E-15"
+        izz="8.93985185103248E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://puppypi_description/meshes/camera_link.STL" />
+      </geometry>
+      <material
+        name="black">
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://puppypi_description/meshes/camera_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="camera_joint"
+    type="fixed">
+    <origin
+      xyz="0 -0.100686660929431 0.017109543359257"
+      rpy="0.0342537604318887 0 0" />
+    <parent
+      link="base_dummy" />
+    <child
+      link="camera_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+  <link name="lf_link3">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+     <mass
+        value="0.0391" />
+      <inertia
+        ixx="3.7713E-012"
+        ixy="0"
+        ixz="0"
+        iyy="3.5422E-12"
+        iyz="0"
+        izz="5.443E-012" />
+    </inertial>
+    <collision>
+      <origin
+        xyz="0.0032 0 0.001"
+        rpy="0 1.57 0" />
+      <geometry>
+        <cylinder radius="0.0095" length="0.01"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="rf_link3">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+     <mass
+        value="0.0391" />
+      <inertia
+        ixx="3.7713E-012"
+        ixy="0"
+        ixz="0"
+        iyy="3.5422E-12"
+        iyz="0"
+        izz="5.443E-012" />
+    </inertial>
+    <collision>
+      <origin
+        xyz="0.0032 0 0.001"
+        rpy="0 1.57 0" />
+      <geometry>
+        <cylinder radius="0.0095" length="0.01"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="lb_link3">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+     <mass
+        value="0.0391" />
+      <inertia
+        ixx="3.7713E-012"
+        ixy="0"
+        ixz="0"
+        iyy="3.5422E-12"
+        iyz="0"
+        izz="5.443E-012" />
+    </inertial>
+    <collision>
+      <origin
+        xyz="0.0032 0 0.001"
+        rpy="0 1.57 0" />
+      <geometry>
+        <cylinder radius="0.0095" length="0.01"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="rb_link3">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+     <mass
+        value="0.0391" />
+      <inertia
+        ixx="3.7713E-012"
+        ixy="0"
+        ixz="0"
+        iyy="3.5422E-12"
+        iyz="0"
+        izz="5.443E-012" />
+    </inertial>
+    <collision>
+      <origin
+        xyz="0.0032 0 0.001"
+        rpy="0 1.57 0" />
+      <geometry>
+        <cylinder radius="0.0095" length="0.01"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="lf_joint3"
+    type="fixed">
+    <origin
+      xyz="0 -0.053 -0.053"
+      rpy="0.78 0 0" />
+    <parent
+      link="lf_link2" />
+    <child
+      link="lf_link3" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+  <joint name="rf_joint3"
+    type="fixed">
+    <origin
+      xyz="0 -0.053 -0.053"
+      rpy="0.78 0 0" />
+    <parent
+      link="rf_link2" />
+    <child
+      link="rf_link3" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+  <joint name="lb_joint3"
+    type="fixed">
+    <origin
+      xyz="0 -0.053 -0.053"
+      rpy="0.78 0 0" />
+    <parent
+      link="lb_link2" />
+    <child
+      link="lb_link3" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+  <joint name="rb_joint3"
+    type="fixed">
+    <origin
+      xyz="0 -0.053 -0.053"
+      rpy="0.78 0 0" />
+    <parent
+      link="rb_link2" />
+    <child
+      link="rb_link3" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>

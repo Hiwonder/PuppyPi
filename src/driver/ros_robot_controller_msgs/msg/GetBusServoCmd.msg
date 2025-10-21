@@ -1,0 +1,10 @@
+uint8 id
+uint8 get_id
+uint8 get_position
+uint8 get_offset
+uint8 get_voltage
+uint8 get_temperature
+uint8 get_position_limit
+uint8 get_voltage_limit
+uint8 get_max_temperature_limit
+uint8 get_torque_state

@@ -1,0 +1,86 @@
+puppy:
+  ros__parameters:
+    joint_state_pub_topic: true
+    joint_state_controller_pub_topic: true
+    stance:
+      Stand:
+        roll: 0.0
+        pitch: 0.0
+        yaw: 0.0
+        height: -10.0
+        x_shift: -0.5
+        stance_x: 0.0
+        stance_y: 0.0
+      LieDown:
+        roll: 0.0
+        pitch: 0.0
+        yaw: 0.0
+        height: -5.0
+        x_shift: 2.0
+        stance_x: 0.0
+        stance_y: 0.0
+      Crouch:
+        roll: 0.0
+        pitch: 0.0
+        yaw: 0.0
+        height: -7.0
+        x_shift: 1.0
+        stance_x: 0.0
+        stance_y: 0.0
+      Sit:
+        roll: 0.0
+        pitch: 0.0
+        yaw: 0.0
+        height: -8.0
+        x_shift: 1.5
+        stance_x: 0.0
+        stance_y: 0.0
+      Play:
+        roll: 0.1
+        pitch: -0.1
+        yaw: 0.0
+        height: -6.0
+        x_shift: 1.2
+        stance_x: 0.1
+        stance_y: -0.1
+    gait_config:
+      GaitConfigFast:
+        overlap_time: 0.1
+        swing_time: 0.15
+        clearance_time: 0.0
+        z_clearance: 5.0
+      GaitConfigSlow:
+        overlap_time: 0.4
+        swing_time: 0.3
+        clearance_time: 0.26
+        z_clearance: 4.0
+      GaitConfigMarkTime:
+        overlap_time: 0.2
+        swing_time: 0.1
+        clearance_time: 0.0
+        z_clearance: 5.0
+      GaitConfigCrawl:
+        overlap_time: 0.5
+        swing_time: 0.4
+        clearance_time: 0.3
+        z_clearance: 3.5
+      Walk:
+        overlap_time: 0.6
+        swing_time: 0.5
+        clearance_time: 0.35
+        z_clearance: 4.5
+      Trot:
+        overlap_time: 0.3
+        swing_time: 0.2
+        clearance_time: 0.15
+        z_clearance: 4.8
+      Amble:
+        overlap_time: 0.25
+        swing_time: 0.2
+        clearance_time: 0.1
+        z_clearance: 4.6
+      Dance:
+        overlap_time: 0.15
+        swing_time: 0.25
+        clearance_time: 0.05
+        z_clearance: 5.5

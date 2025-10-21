@@ -1,0 +1,3 @@
+# Ignore ModemManager for ttyACM0 device
+KERNEL=="ttyACM*", SUBSYSTEM=="tty", GROUP="users", MODE="0777", SYMLINK+="rrc"
+ATTRS{idVendor}=="1a86", ATTRS{idProduct}=="55d4", ENV{ID_MM_PORT_IGNORE}="1"1"

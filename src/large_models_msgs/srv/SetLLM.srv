@@ -1,0 +1,5 @@
+string app_id
+string conversation_id
+---
+bool success
+string message

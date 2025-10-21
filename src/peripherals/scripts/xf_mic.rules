@@ -1,0 +1,2 @@
+SUBSYSTEM=="tty", KERNELS=="1-2.1.1.1:1.0", SYMLINK+="ring_mic"
+KERNEL=="ttyUSB*", MODE:="0666", GROUP:="dialout"

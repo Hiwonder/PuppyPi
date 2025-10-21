@@ -1,0 +1,12 @@
+uint16[] present_id
+uint16[] target_id
+uint16[] position
+int16[] offset
+uint16[] voltage
+uint16[] temperature
+uint16[] position_limit
+uint16[] voltage_limit
+uint16[] max_temperature_limit
+uint16[] enable_torque
+uint16[] save_offset
+uint16[] stop

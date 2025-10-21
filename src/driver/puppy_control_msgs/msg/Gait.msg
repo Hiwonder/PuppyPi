@@ -1,0 +1,4 @@
+float32 overlap_time
+float32 swing_time
+float32 clearance_time
+float32 z_clearance

@@ -1,0 +1,3 @@
+# 1-2.1:1.0  1-2.3:1.0
+# 1-2.2:1.0  1-2.4:1.0
+KERNEL=="video*", ATTRS{idVendor}=="090c", ATTRS{idProduct}=="b371", MODE:="0777", SYMLINK+="usb_cam"

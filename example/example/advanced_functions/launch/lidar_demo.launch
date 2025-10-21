@@ -1,0 +1,6 @@
+<launch>
+
+    <include file="$(find ldlidar)/launch/LD06.launch" />
+    <node name="lidar_demo" pkg="puppy_advanced_functions" type="lidar_demo.py" required="false" output="screen" />
+
+</launch>

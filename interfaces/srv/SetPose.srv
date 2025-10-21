@@ -1,0 +1,9 @@
+float32[] position
+float32[] orientation
+float32[] tolerance
+float32 resolution
+---
+bool success
+float32[] pulse
+uint32 min_variation
+float32[] current_pulse

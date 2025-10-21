@@ -1,0 +1,4 @@
+ros_robot_controller_msgs/GetPWMServoCmd[] cmd
+---
+bool success
+ros_robot_controller_msgs/PWMServoState[] state
