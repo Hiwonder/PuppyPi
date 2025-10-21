@@ -1,0 +1,10 @@
+<launch>
+
+    <node name="face_detect" pkg="face_detect" type="face.py" required="false" output="screen" />
+  <node name="color_detect" pkg="color_detect" type="detect.py" required="false" output="screen" /> 
+  <node name="object_tracking" pkg="object_tracking" type="tracking.py" required="false" output="screen" />
+  <node name="apriltag_detect" pkg="apriltag_detect" type="detect.py" required="false" output="screen" />
+  <node name="visual_patrol" pkg="visual_patrol" type="visual_patrol_node.py" required="false" output="screen" />
+  <node name="performance" pkg="performance" type="performance_node.py" required="false" output="screen" />
+  <include file="$(find lidar_app)/launch/lidar_app.launch" /> 
+</launch>

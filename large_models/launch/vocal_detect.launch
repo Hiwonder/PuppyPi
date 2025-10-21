@@ -1,0 +1,19 @@
+<launch>
+    <!-- Declare launch arguments with default values -->
+    <arg name="mode" default="1" />
+    <arg name="enable_wakeup" default="true" />
+    <arg name="awake_method" default="wonderecho" />
+    <arg name="chinese_awake_words" default="xiao3 huan4 xiao3 huan4" />
+    <arg name="enable_setting" default="false" />
+
+    <!-- Launch the vocal_detect node -->
+    <node name="vocal_detect" pkg="large_models" type="vocal_detect.py" required="true" output="screen" >
+        <param name="port" value="/dev/ring_mic" />
+        <param name="mic_type" value="mic6_circle" />
+        <param name="awake_method" value="$(arg awake_method)" />
+        <param name="awake_word" value="$(arg chinese_awake_words)" />
+        <param name="enable_setting" value="$(arg enable_setting)" />
+        <param name="enable_wakeup" value="$(arg enable_wakeup)" />
+        <param name="mode" value="$(arg mode)" />
+    </node>
+</launch>

@@ -1,0 +1,12 @@
+<launch>
+
+    <!--lab参数加载-->
+    <include file="$(find lab_config)/launch/lab_config_manager.launch" />
+
+    <include file="$(find puppy_pi_bringup)/launch/start_camera.launch" />
+
+    <include file="$(find ldlidar)/launch/LD06.launch" />
+    <include file="$(find puppy_navigation)/launch/include/lidar_filter.launch"/>
+    <include file="$(find puppy_pi_bringup)/launch/start_puppy_control.launch"/>
+    
+</launch>

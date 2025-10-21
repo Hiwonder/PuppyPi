@@ -1,0 +1,5 @@
+<launch>
+    <include file="$(find ldlidar)/launch/LD06.launch" />
+
+    <node name="lidar_app" pkg="lidar_app" type="lidar.py" required="false" output="screen" />
+</launch>

@@ -1,0 +1,3 @@
+<launch>
+    <node name="puppy_control" pkg="puppy_control" type="puppy.py" required="false" output="screen" />
+</launch>

@@ -1,0 +1,11 @@
+<launch>
+    <include file="$(find puppy_bringup)/launch/usb_cam.launch" />
+
+    <node name="puppy_control" pkg="puppy_control" type="puppy.py" required="false" output="screen" /> 
+
+    <!--摄像头画面网页传输-->
+    <node name="web_video_server" pkg="web_video_server" type="web_video_server" required="true" output="screen" />
+    
+    <node name="hand_control" pkg="puppy_with_arm" type="hand_control_with_arm.py" required="false" output="screen" />
+
+</launch>

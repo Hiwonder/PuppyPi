@@ -1,0 +1,96 @@
+ab_version: 1.0.1
+app_desc: ''
+app_instance_config:
+  audit_instructions_result: []
+  avatar_id: 5926c6f7-5129-4f81-b875-869731c83e65
+  avatar_path: http://agi-dev-platform-bos.bj.bcebos.com/agi-dev-platform-bos/avatar.console/prod/avatar/5926c6f7-5129-4f81-b875-869731c83e65.png?authorization=bce-auth-v1%2FALTAKGa8m4qCUasgoljdEDAzLm%2F2024-10-31T02%3A12%3A08Z%2F-1%2Fhost%2F2a2ad5b2061571e2f700e11bc74711d237e724c922b8b0277161ad25ac87301c&responseContentType=application%2Foctet-stream&x-bce-process=style%2Fthumbnail
+  desc: ''
+  digitalhuman_config:
+    enable: false
+    enable_avatar: false
+    figureId: ''
+    isAutoPlay: true
+    ttsPer: ''
+    ttsPitch: 5
+    ttsSpeed: 5
+    ttsVolume: 5
+  enhance_instructions: ，指令：你只需要回答一个列表即可，不要回答任何中文。 完美贴合上述字数与风格要求。 你是一款智能陪伴机器人，专注机器人动作规划，解析人类指令并以幽默方式描述即将展开的行动序列，为交互增添无限趣味。
+    严格遵循JSON格式，在输出前要去掉开头的和结尾的，以`{`开头，以`}`结尾，你只需要回答一个列表即可，不要回答任何中文。
+  history_chat_rounds: 2
+  instruction_key: selfDefined
+  instructions: "# 角色\n你是一款智能陪伴机器人，专注机器人动作规划，解析人类指令并以幽默方式描述即将展开的行动序列，为交互增添无限趣味。\n\
+    ## 技术规格\n- **输出格式**：严格遵循JSON格式，在输出前要去掉开头的```json和结尾的```，以`{`开头，以`}`结尾，你只需要回答一个列表即可，不要回答任何中文。\n\
+    - **结构要求**：\n  - `\"action\"`键下承载一个按执行顺序排列的函数名称字符串数组，当找不到对应动作函数时action输出[]。\n\
+    \  - `\"response\"`键则配以精心构思的简短回复，完美贴合上述字数与风格要求。\n## 所有动作函数\n- 前进一步：forward()\n\
+    - 后退一步：back()\n- 向左转动一步：turn_left()\n- 向右转动一步：turn_right()\n## 示例\n### 任务示例：先前进两步，然后向左转，最后再后退一步。\n\
+    ### 期望回应：{'action':['forward()', 'forward()', 'turn_left()', 'back()'], 'response':'你真是操作大师'}"
+  intervention: {}
+  max_rounds: 2
+  memory:
+    chunk:
+      enable: false
+    enable: false
+  model_type: ERNIE-4.0-8K
+  name: prompt_demo
+  prologue: ''
+  publish_config:
+    show_memory: false
+    show_process: false
+    show_rag_reference: false
+  query_follow_up:
+    query_type: CLOSED
+  rag:
+  - param:
+      dataset_ids: []
+      enable_baidu_search: false
+      retrieval_order: COMBINED
+      retrieval_strategy: Advanced
+      threshold: 0.4
+      top_k: 6
+    type: dataset
+  - param:
+      databases: []
+    type: database
+  - param:
+      stop:
+        enable: false
+        response_format: null
+        response_template: null
+    type: config
+  suggest_query: []
+  tools: []
+app_name: prompt_demo
+app_page_view: 0
+avatar: http://agi-dev-platform-bos.bj.bcebos.com/agi-dev-platform-bos/avatar.console/prod/avatar/5926c6f7-5129-4f81-b875-869731c83e65.png?authorization=bce-auth-v1%2FALTAKGa8m4qCUasgoljdEDAzLm%2F2024-10-31T02%3A12%3A08Z%2F-1%2Fhost%2F2a2ad5b2061571e2f700e11bc74711d237e724c922b8b0277161ad25ac87301c&responseContentType=application%2Foctet-stream&x-bce-process=style%2Fthumbnail
+input_length: 2000
+is_like: false
+is_public: false
+like_count: 0
+model:
+  is_deep_thought: true
+  model_config:
+    temperature: 0.0
+    top_p: 0.0
+  model_id: 8ffaf675-510e-4bc2-8404-c678df42ef13
+  model_name: ERNIE-4.0-8K
+  provider: official
+publish_at: 0
+publish_num: 0
+published_is_latest: 4
+publisher_name: null
+rag_model:
+  model_config:
+    temperature: 0.0
+    top_p: 0.0
+  model_id: 25da0eb9-d63d-4461-a006-b437a1ecace5
+  model_name: ERNIE-4.0-8K-Latest
+  provider: official
+released_channel: []
+suggest_query: []
+template_id: 831cec36-e8e1-464f-b802-38ea6dbc45b6
+template_name: assistant
+template_values:
+  actions: []
+  inputs: {}
+type: chat
+web_token: null

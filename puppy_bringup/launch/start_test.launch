@@ -1,0 +1,21 @@
+<launch>
+
+    <!--lab参数加载-->
+    <include file="$(find lab_config)/launch/lab_config_manager.launch" />
+   
+    <!--config参数加载-->
+    <include file="$(find puppy_pi_bringup)/launch/config_manager.launch" />
+    
+
+    <include file="$(find puppy_pi_bringup)/launch/start_camera.launch" />
+
+    <!-- <include file="$(find puppy_pi_bringup)/launch/start_puppy_control.launch"/> -->
+    <node name="mpu6050Node" pkg="puppy_control" type="mpu6050Node.py" required="false" output="screen" />
+
+    <node name="puppy_control" pkg="puppy_control" type="puppy.py" required="false" output="screen" />
+
+    <node name="puppy_control_joystick" pkg="puppy_control" type="remote_control_joystick.py" required="false" output="screen" />
+    
+    <!-- <include file="$(find puppy_pi_bringup)/launch/start_functions.launch" /> -->
+    
+</launch>

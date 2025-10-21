@@ -1,0 +1,9 @@
+<launch>
+    <!-- 定义参数 -->
+    <arg name="camera_topic" default="/usb_cam/image_raw" />
+
+    <!-- 定义节点 -->
+    <node pkg="large_models" type="agent_process.py" name="agent_process" output="screen">
+        <param name="camera_topic" value="$(arg camera_topic)" />
+    </node>
+</launch>

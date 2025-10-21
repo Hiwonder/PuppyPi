@@ -1,0 +1,5 @@
+<launch>
+        
+    <node name="visual_patrol_with_arm" pkg="puppy_with_arm" type="visual_patrol_with_arm.py" required="false" output="screen" />
+
+</launch>

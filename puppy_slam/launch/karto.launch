@@ -1,0 +1,13 @@
+<launch>
+
+    <!-- <include file="$(find ldlidar)/launch/LD06.launch" /> -->
+
+	  <include file="$(find puppy_slam)/launch/include/rf2o_laser_odometry.launch" />
+
+    <node pkg="tf" type="static_transform_publisher" name="base_footprint_to_imu" args="0 0 0.125 1.57 0 0 base_footprint imu_link 10"/>
+
+    <include file="$(find puppy_slam)/launch/include/ekf_template.launch" />
+
+  	<include file="$(find puppy_slam)/launch/include/karto_slam.launch" />
+    
+</launch>

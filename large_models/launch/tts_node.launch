@@ -1,0 +1,9 @@
+<launch>
+    <!-- 启动 tts_node 节点 -->
+    <node name="tts_node" pkg="large_models" type="tts_node.py" output="screen">
+        <!-- 根据需要设置参数 -->
+        <!-- 例如：
+        <param name="tts_language" value="en-US"/>
+        -->
+    </node>
+</launch>

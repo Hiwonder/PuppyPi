@@ -1,0 +1,16 @@
+<launch>
+    <!--lab参数加载-->
+    <include file="$(find lab_config)/launch/lab_config_manager.launch" />
+   
+    <!--config参数加载-->
+    <include file="$(find puppy_bringup)/launch/config_manager.launch" />
+    
+    <!--摄像头画面网页传输-->
+    <node name="web_video_server" pkg="web_video_server" type="web_video_server" required="true" output="screen" />
+    
+    <!--app控制-->
+    <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch" />
+
+    
+    
+</launch>

@@ -1,0 +1,22 @@
+<launch>
+  <!--usb摄像头-->
+  <arg name="camera_name" default="usb_cam" />
+
+  <node name="$(arg camera_name)" pkg="usb_cam" type="usb_cam_node" respawn="true" respawn_delay="2" output="screen" >
+    <param name="video_device" value="/dev/video0" />
+    <param name="image_width" value="640" />
+    <param name="image_height" value="480" />
+    <param name="pixel_format" value="yuyv" />
+    <param name="camera_frame_id" value="$(arg camera_name)" />
+    <param name="io_method" value="mmap"/>
+  </node>
+
+  <!--
+  <node name="image_proc" pkg="image_proc" type="image_proc" ns="$(arg camera_name)" />
+
+  <node name="image_view" pkg="image_view" type="image_view" respawn="false" output="screen">
+    <remap from="image" to="/usb_cam/image_raw"/>
+    <param name="autosize" value="true" />
+  </node>
+  -->
+</launch>

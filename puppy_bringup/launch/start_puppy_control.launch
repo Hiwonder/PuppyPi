@@ -1,0 +1,7 @@
+<launch>
+  <node name="puppy_control" pkg="puppy_control" type="puppy.py" required="false" output="screen" >
+      <param name="joint_state_pub_topic"     value="false"/>
+      <param name="joint_state_controller_pub_topic"     value="true"/>
+  </node>
+  <node name="puppy_control_joystick" pkg="puppy_control" type="remote_control_joystick.py" required="false" output="screen" />
+</launch>

@@ -1,0 +1,9 @@
+<launch>
+
+    <!-- <include file="$(find ldlidar)/launch/LD06.launch" /> -->
+
+	<include file="$(find puppy_slam)/launch/include/rf2o_laser_odometry.launch" />
+    
+  	<include file="$(find puppy_slam)/launch/include/mapping_default.launch" />
+    
+</launch>

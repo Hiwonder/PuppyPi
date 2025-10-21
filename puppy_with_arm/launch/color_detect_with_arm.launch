@@ -1,0 +1,5 @@
+<launch>
+        
+    <node name="color_detect_with_arm" pkg="puppy_with_arm" type="color_detect_with_arm.py" required="false" output="screen" />
+
+</launch>

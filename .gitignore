@@ -71,6 +71,3 @@ devel/
 *.caffemodel
 *.wts
 *.engine
-
-# Temporary workspace directory
-ros1_ws/

@@ -1,1 +1,0 @@
-interfaces/ObjectInfo[] objects

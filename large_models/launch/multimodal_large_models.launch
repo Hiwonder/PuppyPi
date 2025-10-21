@@ -1,0 +1,19 @@
+<launch>
+    <include file="$(find lab_config)/launch/lab_config_manager.launch" />
+      
+    <!-- Include other launch files -->
+    
+    
+    <include file="$(find large_models)/launch/start.launch"/>
+
+    <!-- Launch the visual_patrol node -->
+    <pause duration="5.0"/>
+    <node pkg="large_models" type="visual_patrol_demo.py" name="visual_patrol_demo" output="screen"/>
+
+    <!-- Launch the kick_ball node -->
+    <node pkg="large_models" type="kick_ball_demo.py" name="kick_ball_demo" output="screen"/>
+    
+    <!-- Launch the function_call node -->
+    <node pkg="large_models" type="function_call.py" name="function_call" output="screen"/>
+
+</launch>

@@ -1,0 +1,25 @@
+<launch>
+    <!-- 启动 vocal_detect 节点 -->
+    <include file="$(find large_models)/launch/vocal_detect.launch" />
+
+    <!-- 启动 agent_process 节点 -->
+    <include file="$(find large_models)/launch/agent_process.launch" />
+
+    <!-- 启动 tts_node 节点 -->
+    <include file="$(find large_models)/launch/tts_node.launch" />
+
+    <!-- 启动 puppy_control 节点 -->
+    <node name="puppy_control" pkg="puppy_control" type="puppy.py" required="false" output="screen" />
+
+    <!-- 启动 USB 摄像头节点 -->
+    <arg name="camera_name" default="usb_cam" />
+
+    <node name="$(arg camera_name)" pkg="usb_cam" type="usb_cam_node" respawn="true" respawn_delay="2" output="screen">
+        <param name="video_device" value="/dev/video0" />
+        <param name="image_width" value="640" />
+        <param name="image_height" value="480" />
+        <param name="pixel_format" value="yuyv" />
+        <param name="camera_frame_id" value="$(arg camera_name)" />
+        <param name="io_method" value="mmap"/>
+    </node>
+</launch>

@@ -1,0 +1,7 @@
+<launch>
+    <node pkg="laser_filters" type="scan_to_scan_filter_chain" output="screen" name="front_laser">
+         <rosparam command="load" file="$(find puppy_navigation)/config/laser_filter.yaml" />
+         
+    </node>
+</launch>
+

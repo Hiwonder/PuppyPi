@@ -1,0 +1,55 @@
+<launch>
+
+    <!-- <include file="$(find ldlidar)/launch/LD06.launch" /> -->
+    <!-- <include file="$(find puppy_navigation)/launch/include/lidar_filter.launch"/> -->
+
+    <include file="$(find puppy_slam)/launch/include/rf2o_laser_odometry.launch" />
+    
+    <node pkg="tf" type="static_transform_publisher" name="base_footprint_to_imu" args="0 0 0.125 0 0 0 base_footprint imu_link 20"/>
+
+    <include file="$(find puppy_slam)/launch/include/ekf_template.launch" />
+
+  	<!-- 启动Map server功能包，发布地图 -->
+    <arg name="map_file" default="$(find puppy_slam)/maps/map1.yaml"/>
+    <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+    
+    <arg name="initial_pose_x" default="0.0"/>
+    <arg name="initial_pose_y" default="0.0"/>
+    <arg name="initial_pose_a" default="0.0"/>
+    
+      <!-- 启动AMCL 自适应蒙特卡洛定位算法包 -->
+    <include file="$(find puppy_navigation)/launch/include/amcl.launch">
+      <arg name="initial_pose_x" value="$(arg initial_pose_x)"/>
+      <arg name="initial_pose_y" value="$(arg initial_pose_y)"/>
+      <arg name="initial_pose_a" value="$(arg initial_pose_a)"/>
+    </include>
+
+    <!-- 启动路径规划算法包 -->	
+    <node pkg="move_base" type="move_base" respawn="true" name="move_base_node" output="screen" clear_params="true">
+      <rosparam file="$(find puppy_navigation)/config/costmap_common_params.yaml" command="load" ns="global_costmap" />
+      <rosparam file="$(find puppy_navigation)/config/costmap_common_params.yaml" command="load" ns="local_costmap" />
+      <rosparam file="$(find puppy_navigation)/config/local_costmap_params.yaml" command="load" />
+      <rosparam file="$(find puppy_navigation)/config/global_costmap_params.yaml" command="load" />
+      <rosparam file="$(find puppy_navigation)/config/base_global_planner_param.yaml" command="load" />
+
+      <rosparam file="$(find puppy_navigation)/config/teb_local_planner_params.yaml" command="load" />
+      <!-- <rosparam file="$(find rrt_exploration_tutorials)/param/base_local_planner_params.yaml" command="load" /> -->
+      <rosparam file="$(find puppy_navigation)/config/move_base_params.yaml" command="load" />
+
+      <param name="global_costmap/global_frame"     value="map"/>
+      <param name="global_costmap/robot_base_frame" value="base_footprint"/>
+      <param name="local_costmap/global_frame"      value="odom"/>
+      <param name="local_costmap/robot_base_frame"  value="base_footprint"/>
+
+      <!-- move base default publish cmd to /cmd_vel topic,now remap to /robot0/cmd_vel -->
+      <remap from="/cmd_vel" to="/cmd_vel_nav"/>
+      <!-- move_base default subscribe odom topic,now remap to /robot0/odom -->
+      <remap from="/odom" to="/odom"/>
+      <!-- move_base default subscribe map topic,now remap to /amcl/map -->
+      <remap from="/map" to="/map"/>
+    </node>
+    
+    <!-- 多点导航 -->
+		<node pkg="puppy_navigation" type="publish_point.py" name="publish_point" output="screen"/>
+
+</launch>

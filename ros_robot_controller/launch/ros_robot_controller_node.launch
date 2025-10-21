@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="freq"              default="100"/>
+    <arg name="imu_link"          default="imu_link"/>
+    <node name="ros_robot_controller" pkg="ros_robot_controller" type="ros_robot_controller_node.py" required="true" output="screen">
+        <param name="freq"        value="$(arg freq)"/>
+        <param name="imu_frame"   value="$(arg imu_link)"/>
+    </node>
+</launch>

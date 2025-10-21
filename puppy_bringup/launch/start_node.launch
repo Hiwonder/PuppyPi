@@ -1,0 +1,12 @@
+<launch>
+   
+    <include file="$(find ros_robot_controller)/launch/ros_robot_controller_node.launch" />
+    <include file="$(find puppy_bringup)/launch/start_dependence.launch" />
+
+    <include file="$(find puppy_bringup)/launch/usb_cam.launch" />
+
+    <include file="$(find puppy_bringup)/launch/start_puppy_control.launch"/>
+
+    <include file="$(find puppy_bringup)/launch/start_functions.launch" />
+    
+</launch>

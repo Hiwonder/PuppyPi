@@ -1,0 +1,2 @@
+根据自己的python和平台版本，将speech下对应文件夹内的speech.so复制到上一层
+然后在这个目录下运行pip3 install . 进行安装即可

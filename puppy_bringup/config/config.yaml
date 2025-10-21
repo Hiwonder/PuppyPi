@@ -1,0 +1,19 @@
+config:
+  d_tag_map:
+          -30
+  tag_z_min:
+          0.01
+  tag_z_max:
+          0.015
+  d_color_map:
+          50
+  color_z_min:
+          0.01
+  color_z_max:
+          0.015
+  d_color_y:
+          20
+  color_y_adjust:
+          400
+  center_x:
+          340

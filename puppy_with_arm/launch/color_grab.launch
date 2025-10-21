@@ -1,0 +1,5 @@
+<launch>
+    
+    <node name="color_grab" pkg="puppy_with_arm" type="color_grab.py" required="false" output="screen" />
+    
+</launch>

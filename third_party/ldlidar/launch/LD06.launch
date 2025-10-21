@@ -1,0 +1,9 @@
+<launch>
+   <!-- <param  name="robot_description" textfile="$(find puppy_pi_urdf)/urdf/puppy_pi.urdf" /> -->
+   <node name="LD06" pkg="ldlidar" type="ldlidar" args="LD06" output="screen" >
+      <remap from="/LiDAR/LD06" to="/scan"/>
+   </node>
+
+   <node pkg="tf" type="static_transform_publisher" name="base_footprint_to_laser" args="0 0 0.18 0 0 0 /base_footprint /laser 20"/>
+
+</launch>
