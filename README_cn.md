@@ -68,7 +68,6 @@ PuppyPi机身部署了多模态AI大模型，结合AI语音交互盒，它可以
 
 ## 项目结构
 
-### ROS2版本（主分支）
 ```
 puppypi/
 ├── src/                      # ROS2源码包
@@ -85,38 +84,12 @@ puppypi/
 └── sources/                 # 资源和文档
 ```
 
-### ROS1版本（ros1分支）
-```
-puppypi/
-├── apriltag_detect/         # AprilTag检测
-├── color_detect/            # 颜色检测
-├── face_detect/             # 人脸检测
-├── object_tracking/         # 目标追踪
-├── visual_patrol/           # 视觉巡航
-├── puppy_bringup/          # 系统启动
-├── puppy_control/          # 运动控制
-├── puppy_common/           # 通用工具
-├── puppy_standard_functions/ # 标准AI功能
-├── puppy_advanced_functions/ # 高级功能
-├── puppy_extend_demo/      # 扩展演示
-├── puppy_navigation/       # 导航（激光雷达）
-├── puppy_slam/            # SLAM建图（激光雷达）
-├── puppy_with_arm/        # 机械臂集成
-├── lidar_app/             # 激光雷达应用
-├── performance/           # 表演动作序列
-├── interfaces/            # ROS消息定义
-├── lab_config/           # 配置文件
-├── large_models/         # AI大模型集成
-└── ros_robot_controller/ # 硬件控制器
-```
-
 ## 版本信息
 - **当前版本**: PuppyPi v1.0.0
 - **支持平台**: 树莓派5
-- **ROS版本**: ROS1 (Noetic) & ROS2 (Humble)
+- **ROS版本**: ROS2 (Humble)
 
 ### 相关技术
-- [ROS](http://www.ros.org/) - 机器人操作系统
 - [ROS2](https://ros.org/) - 机器人操作系统2
 - [OpenCV](https://opencv.org/) - 计算机视觉库
 - [Python](https://www.python.org/) - 编程语言
