@@ -3,7 +3,7 @@
 [English](https://github.com/Hiwonder/PuppyPi/blob/ros2/README.md) | 中文
 
 <p align="center">
-  <img src="./sources/images/image.webp" alt="PuppyPi Logo" width="400"/>
+  <img src="./sources/images/puppypi.png" alt="PuppyPi Logo" width="600"/>
 </p>
 
 基于树莓派5的AI四足机器狗，支持ROS1&ROS2，集成计算机视觉、四足步态控制、SLAM导航、机械臂抓取等高阶AI功能。
