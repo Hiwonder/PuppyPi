@@ -3,7 +3,7 @@
 English | [中文](https://github.com/Hiwonder/PuppyPi/blob/ros2/README_cn.md)
 
 <p align="center">
-  <img src="./sources/images/image.webp" alt="PuppyPi Logo" width="400"/>
+  <img src="./sources/images/puppypi.png" alt="PuppyPi Logo" width="600"/>
 </p>
 
 ## Product Overview
