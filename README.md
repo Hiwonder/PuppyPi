@@ -17,7 +17,7 @@ PuppyPi is deployed with multimodal AI large models. Combined with AI voice inte
 ## Official Resources
 
 ### Official Hiwonder
-- **Official Website**: [https://www.hiwonder.net/](https://www.hiwonder.net/)
+- **Official Website**: [https://www.hiwonder.com/](https://www.hiwonder.com/)
 - **Product Page**: [https://www.hiwonder.com/products/puppypi](https://www.hiwonder.com/products/puppypi)
 - **Official Documentation**: [https://docs.hiwonder.com/projects/PuppyPi/en/latest/](https://docs.hiwonder.com/projects/PuppyPi/en/latest/)
 - **Technical Support**: support@hiwonder.com

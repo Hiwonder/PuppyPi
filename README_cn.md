@@ -19,7 +19,7 @@ PuppyPi机身部署了多模态AI大模型，结合AI语音交互盒，它可以
 ## 官方资源
 
 ### Hiwonder官方
-- **官方网站**: [https://www.hiwonder.net/](https://www.hiwonder.net/)
+- **官方网站**: [https://www.hiwonder.com/](https://www.hiwonder.com/)
 - **产品页面**: [https://www.hiwonder.com/products/puppypi](https://www.hiwonder.com/products/puppypi)
 - **官方文档**: [https://docs.hiwonder.com/projects/PuppyPi/en/latest/](https://docs.hiwonder.com/projects/PuppyPi/en/latest/)
 - **技术支持**: support@hiwonder.com
